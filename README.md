@@ -7,7 +7,94 @@ Created by: Gustavo Morais
 composer create-project craftcms/craft=^1 cms
 ```
 
-### Docker Ubuntu commands
+### Docker NGINX Ubuntu Craft
+```
+docker pull gustavovinicius/craft_nginx:latest
+
+# Build just the mysql container with the following credentials
+
 ```
 
+### MySQL container
+```
+mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: craftmysql
+    ports:
+        - 3306:3306
+    environment:
+        MYSQL_DATABASE: laravel
+        MYSQL_ROOT_PASSWORD: laravel
+    volumes:
+        - ./dockerDBData:/var/lib/mysql
+    networks:
+        craft-app-network:
+            ipv4_address: 12.0.0.8
+```
+
+### PHP Setup
+```
+apt -y install software-properties-common
+add-apt-repository ppa:ondrej/php
+apt-get update
+apt -y install php7.4
+
+apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
+
+apt-get install -y php7.4-fpm
+
+service php7.4-fpm start
+service php7.4-fpm status
+service --status-all
+
+```
+
+### NGINX Setup
+```
+nano /etc/nginx/sites-available/gus
+rm -rf /etc/nginx/sites-available/default
+mv /etc/nginx/sites-available/gus /etc/nginx/sites-available/default
+```
+
+### NGINX Config sites-available/defaul
+```
+server {
+    listen 80;
+    server_name _;
+
+    root /var/www/html/web;
+    
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.php;
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt { access_log off; log_not_found off; }
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+```
+
+### Craft commands
+```
+php craft setup
+https://localhost/index.php?p=admin/install # access and log as admin@email.com
 ```
