@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: ubuntu.dockerfile
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www/html
+        container_name: craftnginx
+        depends_on:
+            - mysql
+        networks:
+            - craft-app-network
+
+    mysql:
+        image: mysql:5.7
+        restart: always
+        container_name: craftmysql
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: laravel
+        volumes:
+            - ./dockerDBData:/var/lib/mysql
+        networks:
+            craft-app-network:
+                ipv4_address: 12.0.0.8
+    
+    # redis:
+    #     image: redis
+    #     container_name: redis
+    #     ports:
+    #         - 6379:6379
+    #     networks:
+    #         craft-app-network:
+    #             ipv4_address: 12.0.0.9
+
+networks:
+    craft-app-network:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "12.0.0.0/16"
