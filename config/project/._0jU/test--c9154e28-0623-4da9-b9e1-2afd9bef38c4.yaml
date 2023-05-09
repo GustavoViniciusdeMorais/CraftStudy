@@ -1,5 +1,5 @@
 fieldLayouts:
-  12fb32ef-07ac-438d-a54d-8b87ae2b4846:
+  7f8aad12-b48f-4eda-9faf-24ed6d531bbe:
     tabs:
       -
         elements:
@@ -23,16 +23,18 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\EntryTitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: default
-hasTitleField: true
-name: Default
-section: d5ac1de8-4233-4467-9b2f-d934e08f7fe9 # Cursos
+handle: test
+hasUrls: true
+name: test
+settings:
+  path: '@webroot/assets/test'
 sortOrder: 1
-titleFormat: null
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: null
+type: craft\volumes\Local
+url: '@web/assets/test'

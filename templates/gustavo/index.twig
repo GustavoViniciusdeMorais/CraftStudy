@@ -1,0 +1,9 @@
+<div>Entries loop</div>
+
+{% set myEntries = craft.entries() %}
+
+{% for entry in myEntries %}
+    <article>
+        {{ entry.title }}
+    </article>
+{% endfor %}

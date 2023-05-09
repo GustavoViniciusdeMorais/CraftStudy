@@ -35,6 +35,7 @@ mysql:
 
 ### PHP Setup
 ```
+apt-get update
 apt -y install software-properties-common
 add-apt-repository ppa:ondrej/php
 apt-get update
