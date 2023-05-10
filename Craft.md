@@ -8,6 +8,8 @@ To do this you have to create a folder in the templates folder,
 and build an index.twig file inside it. The name of the route
 to the page is the name of the folder in the templates directory
 
+[Documentation](https://craftcms.com/docs/getting-started-tutorial/build/templates.html#create-a-category-listing)
+
 ### Admin Panel
 <img src="./imgs/entries.png" height="500px" width="800px" />
 <br>

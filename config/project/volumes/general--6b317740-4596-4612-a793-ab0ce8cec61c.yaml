@@ -1,5 +1,5 @@
 fieldLayouts:
-  f737f78c-575b-4f6a-8970-5526ce7338d3:
+  3a96b8a0-1b76-45f9-a43b-19c06819441c:
     tabs:
       -
         elements:
@@ -23,16 +23,18 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\EntryTitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: default
-hasTitleField: true
-name: Default
-section: 014176d8-962b-4073-a090-8dabe43014f0 # Test
-sortOrder: 1
-titleFormat: null
+handle: general
+hasUrls: true
+name: General
+settings:
+  path: '@webroot/assets/general'
+sortOrder: 2
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: null
+type: craft\volumes\Local
+url: '@web/assets/general'

@@ -1,12 +1,12 @@
 defaultPlacement: end
 enableVersioning: true
-handle: test
-name: Test
+handle: gussec
+name: GusSection
 propagationMethod: all
 siteSettings:
   c7e6038f-b704-4204-a928-cf4f748e7bfc: # test
     enabledByDefault: true
     hasUrls: true
-    template: test/_entry
-    uriFormat: 'test/{slug}'
+    template: gussec/_entry
+    uriFormat: 'gussec/{slug}'
 type: channel
