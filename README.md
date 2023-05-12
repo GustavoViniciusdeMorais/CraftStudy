@@ -44,6 +44,7 @@ apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip 
 apt-get install -y php7.4-fpm
 service php7.4-fpm start
 service php7.4-fpm status
+service nginx start
 service --status-all
 
 ```
