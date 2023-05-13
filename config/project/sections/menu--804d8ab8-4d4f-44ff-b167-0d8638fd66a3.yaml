@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: menu
+name: Menu
+propagationMethod: all
+siteSettings:
+  c7e6038f-b704-4204-a928-cf4f748e7bfc: # test
+    enabledByDefault: true
+    hasUrls: true
+    template: menu/_entry
+    uriFormat: 'menu/{slug}'
+type: channel
