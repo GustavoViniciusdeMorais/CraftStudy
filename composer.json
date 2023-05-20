@@ -9,7 +9,8 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\": "modules/",
+      "modules\\gustavo\\": "modules/gustavo/src"
     }
   },
   "config": {

@@ -18,5 +18,7 @@ ADD ./nginx/default.conf /etc/nginx/sites-available/default
 
 # RUN mkdir /var/www/other
 
+WORKDIR /var/www/html
+
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
