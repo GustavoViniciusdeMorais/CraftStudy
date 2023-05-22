@@ -3,6 +3,11 @@
 namespace modules\gustavo;
 
 use Craft;
+use craft\events\RegisterCpNavItemsEvent;
+use craft\events\RegisterUrlRulesEvent;
+use craft\web\twig\variables\Cp;
+use craft\web\UrlManager;
+use yii\base\Event;
 
 /**
  * Custom module class.
@@ -34,5 +39,30 @@ class Gustavo extends \yii\base\Module
             $this->controllerNamespace = 'modules\\gustavo\\frontend';
         }
         parent::init();
+
+        /**
+         * Link a dashboard link to a yii action
+         */
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['gustavomp'] = 'gustavo/test';
+            }
+        );
+
+        /**
+         * Builds dashboard link
+         */
+        Event::on(
+            Cp::class,
+            CP::EVENT_REGISTER_CP_NAV_ITEMS,
+            function (RegisterCpNavItemsEvent $event) {
+                $event->navItems[] = [
+                    'url' => 'gustavomp',
+                    'label' => 'Gustavo Modulo'
+                ];
+            }
+        );
     }
 }

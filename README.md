@@ -2,6 +2,13 @@
 
 Created by: Gustavo Morais
 
+```
+sudo docker commit 5906b1c1ecc1 craftstudybkp
+
+in docker file FROM craftstudybkp
+
+```
+
 ### Create craft command
 ```
 composer create-project craftcms/craft=^1 cms
