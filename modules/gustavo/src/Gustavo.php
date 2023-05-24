@@ -36,7 +36,7 @@ class Gustavo extends \yii\base\Module
         if (Craft::$app->getRequest()->getIsConsoleRequest()) {
             $this->controllerNamespace = 'modules\\gustavo\\frontend\\console';
         } else {
-            $this->controllerNamespace = 'modules\\gustavo\\frontend';
+            $this->controllerNamespace = 'modules\\gustavo\\frontend\\controllers';
         }
         parent::init();
 
@@ -47,7 +47,8 @@ class Gustavo extends \yii\base\Module
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['gustavomp'] = 'gustavo/test';
+                $event->rules['gustavomp'] = $this->id . '/gustavo/test-gustavo';
+                $event->rules['gustavomp/view'] = $this->id. '/gustavo/test-view';
             }
         );
 
