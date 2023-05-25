@@ -8,6 +8,8 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\web\twig\variables\Cp;
 use craft\web\UrlManager;
 use yii\base\Event;
+use craft\events\RegisterTemplateRootsEvent;
+use craft\web\View;
 
 /**
  * Custom module class.
@@ -65,5 +67,10 @@ class Gustavo extends \yii\base\Module
                 ];
             }
         );
+
+        // Register template roots to resolve our templates correctly
+        Event::on(View::class, View::EVENT_REGISTER_CP_TEMPLATE_ROOTS, function(RegisterTemplateRootsEvent $event) {
+            $event->roots[$this->id] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'frontend/templates';
+        });
     }
 }
