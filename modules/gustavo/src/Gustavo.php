@@ -10,6 +10,7 @@ use craft\web\UrlManager;
 use yii\base\Event;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
+use modules\gustavo\backend\services\UserService;
 
 /**
  * Custom module class.
@@ -51,6 +52,7 @@ class Gustavo extends \yii\base\Module
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['gustavomp'] = $this->id . '/gustavo/test-gustavo';
                 $event->rules['gustavomp/view'] = $this->id. '/gustavo/test-view';
+                $event->rules['gustavomp/data'] = $this->id. '/gustavo/get-data';
             }
         );
 

@@ -3,13 +3,12 @@
 namespace modules\gustavo\frontend\controllers;
 
 use craft\web\Controller;
+use modules\gustavo\backend\services\MyEntriesService;
 
 class GustavoController extends Controller
 {
-    // public function getViewPath()
-    // {
-    //     return '/modules/gustavo/src/frontend/templates';
-    // }
+    protected $allowAnonymous = ['get-data'];
+
 
     public function actionTestGustavo()
     {
@@ -20,5 +19,12 @@ class GustavoController extends Controller
     {
         // return 'view';
         return $this->renderTemplate('gustavo/index.twig');
+    }
+
+    public function actionGetData()
+    {
+        $service = new MyEntriesService();
+        return $service->getMyEntries();
+        // return json_encode('data');
     }
 }
