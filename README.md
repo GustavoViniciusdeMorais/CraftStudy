@@ -7,6 +7,11 @@ sudo docker commit 5906b1c1ecc1 craftstudybkp
 
 in docker file FROM craftstudybkp
 
+service --status-all
+service nginx start
+service php7.4-fpm start
+service --status-all
+
 ```
 
 ### Create craft command
