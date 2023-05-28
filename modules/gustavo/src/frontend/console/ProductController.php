@@ -10,7 +10,9 @@ use modules\gustavo\backend\migrations\ProductMigration;
 
 class ProductController extends Controller
 {
-    # class command: php craft gustavo/product/build
+    # class commands:
+    # php craft gustavo/product/build
+    # php craft gustavo/product/destroy
 
     public function actionBuild()
     {
@@ -18,12 +20,20 @@ class ProductController extends Controller
         $productMigration->createTable(
             'products',
             [
-                'id' => 'integer',
+                'id' => 'integer unsigned NOT NULL AUTO_INCREMENT',
                 'name' => 'string',
-                'price' => 'numeric'
+                'price' => 'numeric',
+                'dateCreated' => 'datetime',
+                'dateUpdated' => 'datetime',
+                'uid' => 'string',
+                "PRIMARY KEY (`id`)",
             ]
         );
-        $productMigration->addPrimaryKey('products_pk', 'products', 'id');
-        print_r(json_encode(['test']));echo "\n\n";exit;
+    }
+
+    public function actionDestroy()
+    {
+        $productMigration = new ProductMigration();
+        $productMigration->dropTable('products');
     }
 }
