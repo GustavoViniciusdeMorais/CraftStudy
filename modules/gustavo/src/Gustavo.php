@@ -50,12 +50,13 @@ class Gustavo extends \yii\base\Module
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['gustavomp'] = $this->id . '/gustavo/test-gustavo';
+                $event->rules['gustavomp'] = $this->id . '/gustavo/test-work';
                 $event->rules['gustavomp/view'] = $this->id. '/gustavo/test-view';
                 $event->rules['gustavomp/data'] = $this->id. '/gustavo/get-data';
                 $event->rules['gustavomp/create-product'] = $this->id. '/gustavo/create-form';
                 $event->rules['gustavomp/receive-product-data'] = $this->id. '/gustavo/rceive-product-data';
                 $event->rules['gustavomp/products'] = $this->id . '/gustavo/list-products';
+                $event->rules['gustavomp/email'] = $this->id . '/gustavo/send-email';
             }
         );
 

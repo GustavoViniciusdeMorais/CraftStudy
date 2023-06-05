@@ -1,8 +1,18 @@
-dateModified: 1684001283
+dateModified: 1685973376
 email:
   fromEmail: admin@email.com
   fromName: test
-  transportType: craft\mail\transportadapters\Sendmail
+  replyToEmail: null
+  template: null
+  transportSettings:
+    encryptionMethod: none
+    host: mailhog_yii
+    password: ''
+    port: '1025'
+    timeout: '10'
+    useAuthentication: '0'
+    username: ''
+  transportType: craft\mail\transportadapters\Smtp
 meta:
   __names__:
     0aa7afbd-684c-4a4f-af35-7ae3e7c880b9: 'Url Link' # Url Link
