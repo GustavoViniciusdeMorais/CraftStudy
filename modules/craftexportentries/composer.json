@@ -1,0 +1,29 @@
+{
+    "name": "gustavoviniciusdemorais/craftexportentries",
+    "description": "Your plugin’s package description",
+    "type": "craft-plugin",
+    "keywords": ["export", "import", "entries"],
+    "license": "UNLICENSED",
+    "authors": [
+      {
+        "name": "Gustavo Morais",
+        "homepage": "https://github.com/GustavoViniciusdeMorais"
+      }
+    ],
+    "support": {
+      "email": "gustavoviniciusmoraisti@gmail.com"
+    },
+    "require": {
+      "craftcms/cms": "^3.1.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "GustavoViniciusDeMorais\\CraftExportEntries\\": "src/"
+      }
+    },
+    "extra": {
+      "name": "Plugin Name",
+      "handle": "my-plugin-handle"
+    }
+  }
+  

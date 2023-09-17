@@ -5,12 +5,14 @@
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
     "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
     "psr-4": {
       "modules\\": "modules/",
-      "modules\\gustavo\\": "modules/gustavo/src"
+      "modules\\gustavo\\": "modules/gustavo/src",
+      "modules\\craftexportentries\\": "modules/craftexportentries/src"
     }
   },
   "config": {

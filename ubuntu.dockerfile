@@ -1,6 +1,6 @@
 # FROM ubuntu:jammy
 
-FROM craftstudybkp
+FROM gustavovinicius/craft_nginx
 
 # RUN apt update
 
@@ -14,13 +14,13 @@ FROM craftstudybkp
 
 # RUN apt install systemctl -y
 
-# ADD ./nginx/default.conf /etc/nginx/sites-available/default
+ADD ./nginx/default.conf /etc/nginx/sites-available/default
 
 # # RUN mkdir /var/www/mysite
 
 # # RUN mkdir /var/www/other
 
-# WORKDIR /var/www/html
+WORKDIR /var/www/html
 
 
 # ENTRYPOINT ["tail", "-f", "/dev/null"]

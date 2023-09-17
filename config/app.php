@@ -24,9 +24,11 @@ return [
     'modules' => [
         'my-module' => \modules\Module::class,
         'gustavo' => \modules\gustavo\Gustavo::class,
+        'craftexportentries' => \modules\craftexportentries\CraftExportEntries::class,
     ],
     'bootstrap' => [
         'my-module',
-        'gustavo'
+        'gustavo',
+        'craftexportentries'
     ],
 ];
