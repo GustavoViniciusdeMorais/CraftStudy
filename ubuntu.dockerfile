@@ -1,6 +1,6 @@
 # FROM ubuntu:jammy
 
-FROM gustavovinicius/craft_nginx
+FROM gustavovinicius/craftcms4
 
 # RUN apt update
 
@@ -22,5 +22,4 @@ ADD ./nginx/default.conf /etc/nginx/sites-available/default
 
 WORKDIR /var/www/html
 
-
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
