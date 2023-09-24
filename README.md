@@ -2,6 +2,10 @@
 
 Created by: Gustavo Morais
 
+https://hub.docker.com/r/gustavovinicius/craft_nginx
+
+The framework code is now at the cms folder
+
 ```
 sudo docker commit 5906b1c1ecc1 craftstudybkp
 
@@ -9,9 +13,25 @@ in docker file FROM craftstudybkp
 
 service --status-all
 service nginx start
-service php7.4-fpm start
+service php8.1-fpm start
 service --status-all
 
+```
+
+### Troubleshooting commands
+```sh
+apt install -y php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-curl php8.1-zip
+apt install php8.1-imagick -y
+```
+or
+```sh
+apt-get update
+apt-get install php8.1-mbstring -y
+apt-get install php8.1-xml -y
+apt install php8.1-bcmath -y
+apt install php8.1-curl -y
+apt install php8.1-zip -y
+composer install
 ```
 
 ### Create craft command
@@ -51,11 +71,11 @@ apt-get update
 apt -y install software-properties-common
 add-apt-repository ppa:ondrej/php
 apt-get update
-apt -y install php7.4
-apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
-apt-get install -y php7.4-fpm
-service php7.4-fpm start
-service php7.4-fpm status
+apt -y install php8.1
+apt-get install -y php8.1-cli php8.1-json php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
+apt-get install -y php8.1-fpm
+service php8.1-fpm start
+service php8.1-fpm status
 service nginx start
 service --status-all
 
@@ -92,7 +112,7 @@ server {
     error_page 404 /index.php;
 
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
