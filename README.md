@@ -22,15 +22,20 @@ service --status-all
 ```sh
 apt install -y php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-curl php8.1-zip
 apt install php8.1-imagick -y
+service php8.1-fpm stop
+service php8.1-fpm start
 ```
 or
 ```sh
-apt-get update
-apt-get install php8.1-mbstring -y
-apt-get install php8.1-xml -y
+apt update
+apt install php8.1-mbstring -y
+apt install php8.1-xml -y
 apt install php8.1-bcmath -y
 apt install php8.1-curl -y
 apt install php8.1-zip -y
+apt install php8.1-intl -y
+service php8.1-fpm stop
+service php8.1-fpm start
 composer install
 ```
 

@@ -15,6 +15,8 @@ RUN apt install systemctl -y
 
 ADD ./nginx/default.conf /etc/nginx/sites-available/default
 
+RUN apt install -y php8.1-fpm
+
 # # RUN mkdir /var/www/mysite
 
 # # RUN mkdir /var/www/other

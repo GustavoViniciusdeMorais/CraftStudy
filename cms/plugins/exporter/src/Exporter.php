@@ -6,6 +6,11 @@ use Craft;
 use craft\base\Model;
 use craft\base\Plugin;
 use gustavomorais\craftexporter\models\Settings;
+use craft\web\UrlManager;
+use yii\base\Event;
+use craft\events\RegisterUrlRulesEvent;
+use craft\events\RegisterCpNavItemsEvent;
+use craft\web\twig\variables\Cp;
 
 /**
  * Exporter plugin
@@ -55,5 +60,29 @@ class Exporter extends Plugin
     {
         // Register event handlers here ...
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
+        /**
+         * Link a dashboard link to a yii action
+         */
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_CP_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['craftexportentries'] = $this->id . '/main/main-screen';
+            }
+        );
+
+        /**
+         * Builds dashboard link
+         */
+        Event::on(
+            Cp::class,
+            CP::EVENT_REGISTER_CP_NAV_ITEMS,
+            function (RegisterCpNavItemsEvent $event) {
+                $event->navItems[] = [
+                    'url' => 'craftexportentries',
+                    'label' => 'Export Inport'
+                ];
+            }
+        );
     }
 }
