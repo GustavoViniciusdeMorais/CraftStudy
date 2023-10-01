@@ -3,6 +3,7 @@
     "prefer-stable": true,
     "require": {
         "craftcms/cms": "^4.0.0",
+        "gustavomorais/craftexporter": "dev-exporter",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {

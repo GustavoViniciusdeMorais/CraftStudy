@@ -35,7 +35,7 @@ class Exporter extends Plugin
     public function init(): void
     {
         parent::init();
-
+        // print_r(json_encode(['test']));echo "\n\n";exit;
         // Defer most setup tasks until Craft is fully initialized
         Craft::$app->onInit(function() {
             $this->attachEventHandlers();
@@ -71,16 +71,14 @@ class Exporter extends Plugin
             }
         );
 
-        /**
-         * Builds dashboard link
-         */
         Event::on(
             Cp::class,
-            CP::EVENT_REGISTER_CP_NAV_ITEMS,
-            function (RegisterCpNavItemsEvent $event) {
+            Cp::EVENT_REGISTER_CP_NAV_ITEMS,
+            function(RegisterCpNavItemsEvent $event) {
                 $event->navItems[] = [
                     'url' => 'craftexportentries',
-                    'label' => 'Export Inport'
+                    'label' => 'Gus Exporter',
+                    'icon' => '@mynamespace/path/to/icon.svg',
                 ];
             }
         );

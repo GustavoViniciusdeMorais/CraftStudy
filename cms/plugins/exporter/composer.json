@@ -1,5 +1,5 @@
 {
-    "name": "gustavo-morais/craft-exporter",
+    "name": "gustavomorais/craftexporter",
     "description": "Export and inport entries",
     "type": "craft-plugin",
     "require": {

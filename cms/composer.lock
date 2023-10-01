@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb138ff3cb354e001eaf19cc3b204344",
+    "content-hash": "a47a8a5b738ad0f901c459b5b02a23a3",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1574,6 +1574,51 @@
                 }
             ],
             "time": "2023-02-25T20:23:15+00:00"
+        },
+        {
+            "name": "gustavomorais/craftexporter",
+            "version": "dev-exporter",
+            "dist": {
+                "type": "path",
+                "url": "plugins/exporter",
+                "reference": "734a6ccd6e84ddfe2d062c81de76c93456b70731"
+            },
+            "require": {
+                "craftcms/cms": "^4.5.0",
+                "php": ">=8.0.2"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "_exporter",
+                "name": "Exporter",
+                "developer": "Gustavo Morais",
+                "documentationUrl": "",
+                "class": "gustavomorais\\craftexporter\\Exporter"
+            },
+            "autoload": {
+                "psr-4": {
+                    "gustavomorais\\craftexporter\\": "src/"
+                }
+            },
+            "scripts": {
+                "check-cs": [
+                    "ecs check --ansi"
+                ],
+                "fix-cs": [
+                    "ecs check --ansi --fix"
+                ],
+                "phpstan": [
+                    "phpstan --memory-limit=1G"
+                ]
+            },
+            "description": "Export and inport entries",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -7420,9 +7465,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],

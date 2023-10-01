@@ -1,4 +1,4 @@
-dateModified: 1695592941
+dateModified: 1696169589
 email:
   fromEmail: admin@email.com
   fromName: test
@@ -66,6 +66,10 @@ meta:
     ed43a8db-66a3-47f3-bfd7-e8b952966759: text # text
     fb7b2687-e8af-4945-bc39-f9bfc011886d: image # image
 plugins:
+  _exporter:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   redactor:
     edition: standard
     enabled: true
