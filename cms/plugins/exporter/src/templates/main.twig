@@ -1,6 +1,13 @@
 {% extends "_layouts/cp.twig" %}
-{% set title = "Gustavo Morais"|t('plugin-handle') %}
+{% set title = "Vikiport"|t('plugin-handle') %}
 
 {% block content %}
-  <p>Vikiport</p>
+    <h4>Sections</h4>
+    <ul>
+        {% for section in sections %}
+            <li>
+                {{ section.name }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
