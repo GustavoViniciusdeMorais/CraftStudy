@@ -45,7 +45,7 @@ class Exporter extends Plugin
 
     protected function createSettingsModel(): ?Model
     {
-        return Craft::createObject(Settings::class);
+        return Craft::createObject(Settings::class);    
     }
 
     protected function settingsHtml(): ?string
@@ -67,7 +67,7 @@ class Exporter extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['craftexportentries'] = $this->id . '/main/main-screen';
+                $event->rules['craftexportentries'] = $this->id . '/main/echo';
             }
         );
 

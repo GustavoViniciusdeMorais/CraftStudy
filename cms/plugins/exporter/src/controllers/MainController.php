@@ -6,8 +6,11 @@ use craft\web\Controller;
 
 class MainController extends Controller
 {
-    public function actionTest()
+    protected array|bool|int $allowAnonymous = true;
+
+    public function actionEcho()
     {
-        print_r(json_encode(['test']));echo "\n\n";exit;
+        // return $this->asJson(['ping' => 'Pong!']);
+        return $this->renderTemplate('_exporter/main');
     }
 }
