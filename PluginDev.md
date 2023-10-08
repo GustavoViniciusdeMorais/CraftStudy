@@ -23,5 +23,4 @@ apt install php8.1-zip -y
 apt install php8.1-intl -y
 service php8.1-fpm stop
 service php8.1-fpm start
-composer install
 ```

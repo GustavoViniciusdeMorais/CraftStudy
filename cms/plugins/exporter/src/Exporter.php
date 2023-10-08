@@ -29,6 +29,10 @@ class Exporter extends Plugin
             'components' => [
                 // Define component configs here...
             ],
+            'aliases' => [
+                '@mynamespace' => 'gustavomorais\\craftexporter',
+                '@resources' => 'gustavomorais/craftexporter/resources'
+            ]
         ];
     }
 
@@ -45,7 +49,7 @@ class Exporter extends Plugin
 
     protected function createSettingsModel(): ?Model
     {
-        return Craft::createObject(Settings::class);    
+        return Craft::createObject(Settings::class);
     }
 
     protected function settingsHtml(): ?string

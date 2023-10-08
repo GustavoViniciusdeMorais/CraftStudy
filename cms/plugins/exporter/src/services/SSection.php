@@ -25,6 +25,7 @@ class SSection
                     $sectionsNames[] = [
                         'id' => $section->id,
                         'name' => $section->name,
+                        'handle' => $section->handle,
                     ];
                 }
             }

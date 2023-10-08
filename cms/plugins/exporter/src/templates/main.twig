@@ -3,11 +3,11 @@
 
 {% block content %}
     <h4>Sections</h4>
-    <ul>
+    <select name="" id="">
         {% for section in sections %}
-            <li>
+            <option value="{{section.handle}}">
                 {{ section.name }}
-            </li>
+            </option>
         {% endfor %}
-    </ul>
+    </select>
 {% endblock %}
