@@ -31,7 +31,7 @@ class Exporter extends Plugin
             ],
             'aliases' => [
                 '@mynamespace' => 'gustavomorais\\craftexporter',
-                '@resources' => 'gustavomorais/craftexporter/resources'
+                '@resources' => 'src/resources'
             ]
         ];
     }
@@ -71,7 +71,8 @@ class Exporter extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['craftexportentries'] = $this->id . '/main/echo';
+                $event->rules['craftexportentries'] = $this->id . '/main/main-screen';
+                $event->rules['vikiport/get-entries'] = $this->id . '/main/get-entries';
             }
         );
 

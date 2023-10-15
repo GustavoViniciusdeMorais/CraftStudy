@@ -2,6 +2,7 @@
 
 namespace gustavomorais\craftexporter\controllers;
 
+use Craft;
 use craft\web\Controller;
 use gustavomorais\craftexporter\services\SSection;
 use gustavomorais\craftexporter\assetbundles\ScriptsBundle;
@@ -9,8 +10,9 @@ use gustavomorais\craftexporter\assetbundles\ScriptsBundle;
 class MainController extends Controller
 {
     protected array|bool|int $allowAnonymous = true;
+    public $enableCsrfValidation = false;
 
-    public function actionEcho()
+    public function actionMainScreen()
     {
         $sSection = new SSection();
         $sectionsList = $sSection->getAllSections();
@@ -25,5 +27,11 @@ class MainController extends Controller
                 'sections' => $sectionsList
             ]
         );
+    }
+
+    public function actionGetEntries()
+    {
+        $sessionHandler = Craft::$app->request->post('sessionHandler');
+        return "you sent this: {$sessionHandler}";
     }
 }

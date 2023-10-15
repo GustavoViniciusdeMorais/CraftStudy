@@ -10,7 +10,7 @@ class ScriptsBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '/var/www/html/cms/plugins/exporter/src/resources';
+        $this->sourcePath = __DIR__ . '/resources';
 
         // define the dependencies
         $this->depends = [
@@ -20,11 +20,12 @@ class ScriptsBundle extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
+            'jquery-3.7.1.min.js',
             'scripts.js',
         ];
 
         $this->css = [
-            'styles.css',
+            // 'styles.css',
         ];
 
         parent::init();
