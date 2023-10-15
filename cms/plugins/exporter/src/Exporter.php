@@ -31,7 +31,6 @@ class Exporter extends Plugin
             ],
             'aliases' => [
                 '@mynamespace' => 'gustavomorais\\craftexporter',
-                '@resources' => 'src/resources'
             ]
         ];
     }
