@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+    // Read selection of sessions to list entries
     $('#select-session-handler').on('change', function(e){
         var selectedOption = $("option:selected", this);
         

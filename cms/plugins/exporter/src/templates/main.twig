@@ -10,4 +10,11 @@
             </option>
         {% endfor %}
     </select>
+
+    <div>
+        <form action="vikiport/import-entries" method="post" enctype="multipart/form-data">
+            <input type="file" name="entriesData">
+            <button class="btn" >Import data</button>
+        </form>
+    </div>
 {% endblock %}

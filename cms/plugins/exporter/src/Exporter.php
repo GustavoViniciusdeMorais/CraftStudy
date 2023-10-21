@@ -72,6 +72,7 @@ class Exporter extends Plugin
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['craftexportentries'] = $this->id . '/main/main-screen';
                 $event->rules['vikiport/get-entries'] = $this->id . '/main/get-entries';
+                $event->rules['vikiport/import-entries'] = $this->id . '/main/import-entries';
             }
         );
 
