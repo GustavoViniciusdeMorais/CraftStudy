@@ -1,5 +1,5 @@
 # FROM ubuntu:jammy
-FROM gustavovinicius/craft_nginx:php8
+FROM gustavovinicius/craft_nginx:php81
 
 RUN apt update
 

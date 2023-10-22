@@ -4,6 +4,9 @@ namespace gustavomorais\craftexporter\services;
 
 use Craft;
 use craft\web\UploadedFile;
+use gustavomorais\craftexporter\infrastructure\repositories\RSection;
+use craft\models\Section;
+use craft\models\Section_SiteSettings;
 
 class ImportData
 {
@@ -46,6 +49,9 @@ class ImportData
             }
             fclose($handle);
         }
+
+        $this->createSection($attributes);
+
         return $formattedData;
     }
 
@@ -58,5 +64,29 @@ class ImportData
             }
         }
         return $entry;
+    }
+
+    public function createSection(array $attributes = [])
+    {
+        if (!empty($attributes)) {
+            $section = new Section([
+                'name' => 'test1',
+                'handle' => 'test1',
+                'type' => Section::TYPE_CHANNEL,
+                'attributes' => $attributes,
+                'siteSettings' => [
+                    new Section_SiteSettings([
+                        'siteId' => Craft::$app->sites->getPrimarySite()->id,
+                        'enabledByDefault' => true,
+                        'hasUrls' => true,
+                        'uriFormat' => 'foo/{slug}',
+                        'template' => 'foo/_entry',
+                    ]),
+                ]
+            ]);
+            
+            return Craft::$app->sections->saveSection($section);
+        }
+        return false;
     }
 }
