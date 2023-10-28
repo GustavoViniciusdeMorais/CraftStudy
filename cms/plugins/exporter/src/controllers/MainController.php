@@ -7,13 +7,14 @@ use craft\web\Controller;
 use gustavomorais\craftexporter\services\SSection;
 use gustavomorais\craftexporter\assetbundles\ScriptsBundle;
 use gustavomorais\craftexporter\services\ImportData;
+use gustavomorais\craftexporter\services\SField;
 
 class MainController extends Controller
 {
     protected array|bool|int $allowAnonymous = true;
     public $enableCsrfValidation = false;
 
-    public function actionMainScreen()
+    public function actionMainScreen(string $message = '')
     {
         $sSection = new SSection();
         $sectionsList = $sSection->getAllSections();
@@ -25,7 +26,8 @@ class MainController extends Controller
         return $this->renderTemplate(
             '_exporter/main',
             [
-                'sections' => $sectionsList
+                'sections' => $sectionsList,
+                'message' => $message,
             ]
         );
     }
@@ -38,8 +40,8 @@ class MainController extends Controller
 
     public function actionImportEntries()
     {
+        $result = [];
         try {
-            $result = [];
             $sectionData = (new ImportData)->execute();
             if (
                 !empty($sectionData)
@@ -47,19 +49,37 @@ class MainController extends Controller
                 && isset($sectionData['fileName'])
             ) {
                 $sSection = new SSection();
-                $result['section'] = $sSection->createSection(
+                $resultedSection = $sSection->createSection(
                     $sectionData['fileName'],
                     $sectionData['fileName'],
                     $sectionData['attributes']
                 );
-                $result['status'] = 'success';
-            }
 
-            return $this->asJson($result);
+                if ($resultedSection['status'] == 'error') {
+                    throw new \Exception("Error creating section");
+                }
+
+                $result['status'] = 'success';
+                $result['section'] = $resultedSection['section'];
+
+                $sField = new SField();
+                foreach ($sectionData['attributes'] as $name) {
+                    $sField->createField($name, 'text');
+                }
+            }
         } catch (\Exception $e) {
-            return $this->asJson([
-                'message' => $e->getMessage()
-            ]);
+            $result = [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTrace(),
+            ];
         }
+
+        if (is_array($result)) {
+            $result = json_encode($result);
+        }
+
+        return $this->actionMainScreen($result);
     }
 }

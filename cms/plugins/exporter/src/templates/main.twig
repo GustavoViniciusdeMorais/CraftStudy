@@ -2,6 +2,12 @@
 {% set title = "Vikiport"|t('plugin-handle') %}
 
 {% block content %}
+
+    {% if message is defined and message|length %}
+        {{ message }}
+    {% endif %}
+    
+
     <h4>Sections</h4>
     <select name="" id="select-session-handler">
         {% for section in sections %}

@@ -46,16 +46,15 @@ class SSection
 
     public function createSection(
         string $name = 'default',
-        string $handle = 'default',
-        array $attributes = [],
+        string $handle = 'default'
     ) {
-        // print_r(json_encode([$name, $attributes]));echo "\n\n";exit;
-        if (!empty($attributes)) {
+        $result = [];
+        try {
             $section = new Section([
                 'name' => $name,
                 'handle' => $handle,
                 'type' => Section::TYPE_CHANNEL,
-                'attributes' => $attributes,
+                'attributes' => [],
                 'siteSettings' => [
                     new Section_SiteSettings([
                         'siteId' => Craft::$app->sites->getPrimarySite()->id,
@@ -66,9 +65,15 @@ class SSection
                     ]),
                 ]
             ]);
-            print_r(json_encode([$section]));echo "\n\n";
-            return Craft::$app->sections->saveSection($section);
+            $result['section'] = Craft::$app->sections->saveSection($section);
+            $result['status'] = 'success';
+        } catch (\Exception $e) {
+            $result['status'] = 'error';
+            $result['message'] = $e->getMessage();
+            $result['file'] = $e->getFile();
+            $result['line'] = $e->getLine();
+            $result['trace'] = $e->getTrace();
         }
-        return false;
+        return $result;
     }
 }

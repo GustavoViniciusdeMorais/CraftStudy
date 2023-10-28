@@ -1,5 +1,5 @@
 fieldLayouts:
-  ad85d85a-19d0-44bf-9f75-1f9dfefbf46d:
+  05ed5ce3-84c2-4809-915a-43dcf76bb1a3:
     tabs:
       -
         elementCondition: null
@@ -26,17 +26,17 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 109ed0a9-a382-418a-a2ab-a181a0c211e8
+            uid: 2fb568fd-06da-4329-9dbd-3fcb7cd3b1dd
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 7e027d75-0192-4d34-a1f7-1a3c97fbf4ad
+        uid: ca10e52a-d6dc-447f-bac7-c10117366be2
         userCondition: null
 handle: default
 hasTitleField: true
 name: Default
-section: 880b8ca6-dc11-4431-8987-ec388dff2d1b # entriesGus
+section: 85fea831-5aa0-446c-8813-94be523ac222 # entriesGus
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
