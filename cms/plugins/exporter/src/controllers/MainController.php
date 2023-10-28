@@ -39,7 +39,23 @@ class MainController extends Controller
     public function actionImportEntries()
     {
         try {
-            return (new ImportData)->execute();
+            $result = [];
+            $sectionData = (new ImportData)->execute();
+            if (
+                !empty($sectionData)
+                && isset($sectionData['attributes'])
+                && isset($sectionData['fileName'])
+            ) {
+                $sSection = new SSection();
+                $result['section'] = $sSection->createSection(
+                    $sectionData['fileName'],
+                    $sectionData['fileName'],
+                    $sectionData['attributes']
+                );
+                $result['status'] = 'success';
+            }
+
+            return $this->asJson($result);
         } catch (\Exception $e) {
             return $this->asJson([
                 'message' => $e->getMessage()

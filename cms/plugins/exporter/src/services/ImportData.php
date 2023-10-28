@@ -5,19 +5,29 @@ namespace gustavomorais\craftexporter\services;
 use Craft;
 use craft\web\UploadedFile;
 use gustavomorais\craftexporter\infrastructure\repositories\RSection;
-use craft\models\Section;
-use craft\models\Section_SiteSettings;
 
 class ImportData
 {
     public function execute()
     {
+        $result = [];
         $file = (new UploadedFile)->getInstanceByName('entriesData');
-        $formattedData = $this->formatCsvData($file);
+
+        if (
+            !empty($file)
+            && isset($file->baseName)
+        ) {
+            $formattedResult = $this->formatCsvData($file);
+            $result['formattedData'] = $formattedResult['formattedData'];
+            $result['attributes'] = $formattedResult['attributes'];
+            $result['fileName'] = $file->baseName;
+        }
+
+        return $result;
         // $content = file_get_contents($file->tempName);
         // $content = file_get_contents('/var/www/html/cms/plugins/exporter/src/csvs/entries.csv');
         // $arrayContent = str_getcsv($content);
-        print_r(json_encode([$formattedData]));echo "\n\n";exit;
+        // print_r(json_encode([$formattedData]));echo "\n\n";exit;
     }
 
     /**
@@ -50,9 +60,10 @@ class ImportData
             fclose($handle);
         }
 
-        $this->createSection($attributes);
-
-        return $formattedData;
+        return [
+            'formattedData' => $formattedData,
+            'attributes' => $attributes
+        ];
     }
 
     public function formatEntryData($attributes, $data)
@@ -64,29 +75,5 @@ class ImportData
             }
         }
         return $entry;
-    }
-
-    public function createSection(array $attributes = [])
-    {
-        if (!empty($attributes)) {
-            $section = new Section([
-                'name' => 'test1',
-                'handle' => 'test1',
-                'type' => Section::TYPE_CHANNEL,
-                'attributes' => $attributes,
-                'siteSettings' => [
-                    new Section_SiteSettings([
-                        'siteId' => Craft::$app->sites->getPrimarySite()->id,
-                        'enabledByDefault' => true,
-                        'hasUrls' => true,
-                        'uriFormat' => 'foo/{slug}',
-                        'template' => 'foo/_entry',
-                    ]),
-                ]
-            ]);
-            
-            return Craft::$app->sections->saveSection($section);
-        }
-        return false;
     }
 }

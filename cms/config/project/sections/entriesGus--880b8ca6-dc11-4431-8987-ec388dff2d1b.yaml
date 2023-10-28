@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+handle: entriesGus
+name: entriesGus
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  c7e6038f-b704-4204-a928-cf4f748e7bfc: # test
+    enabledByDefault: true
+    hasUrls: true
+    template: foo/_entry
+    uriFormat: 'foo/{slug}'
+type: channel
