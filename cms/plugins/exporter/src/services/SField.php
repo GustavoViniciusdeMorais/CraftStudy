@@ -7,21 +7,17 @@ use craft\services\Fields;
 use craft\models\CategoryGroup;
 use craft\services\Sections;
 use craft\models\FieldLayout;
+use craft\helpers\ArrayHelper;
 
 class SField
 {
-    public function createField(string $name, string $type)
+    public function createField(string $name, string $type, string $sectionHandle)
     {
         $fields = new Fields();
         if (
             !empty($name)
             && !empty($type)
         ) {
-            // $resultedField = $fields->createField([
-            //     'name' => $name,
-            //     'type' => $type,
-            // ]);
-            // $fieldsService = Craft::$app->getFields();
             $field = $fields->createField([
                 'type' => 'craft\fields\PlainText',
                 'groupId' => 1,
@@ -38,28 +34,33 @@ class SField
                     'columnType' => 'text',
                 ],
             ]);
-            $result = $fields->saveField($field, false);
-            print_r(json_encode([$result]));echo "\n\n";
-            // $fLayout = new FieldLayout();
-            // $fLayout->setFields([$resultedField]);
-
-            // $resultedField = $fields->saveLayout($fLayout);
-            // throw new \Exception($resultedField);
+            $fields->saveField($field, false);
+            // $this->addFieldToSection($sectionHandle, $field);
         }
+        return true;
     }
 
-    public function createCategory()
+    public function addFieldToSection(string $sectionHandle, $field = null)
     {
-        $categoryGroup = new CategoryGroup();
-        $categoryGroup->name = 'test1';
-        $categoryGroup->handle = 'test1';
-    }
+        if (
+            !empty($sectionHandle)
+            && !empty($field)
+        ) {
+            // Get the entry type to add the new field to
+            $entryType = Craft::$app->getSections()->getSectionByHandle($sectionHandle)->entryTypes[0];
 
-    public function createFieldLayout()
-    {
-        $section = new Sections();
-        $entryType = $section->getSectionByHandle('entriesGus')->entryTypes[0];
-        // $entryType = Craft::$app->getSections()->getSectionByHandle('entriesGus')->entryTypes[0];
-        print_r(json_encode(['asfasdfadfs' => $entryType]));echo "\n\n";
+            // Get current fieldLayout
+            $fieldLayout = $entryType->getFieldLayout();
+
+            $amendedFields = ArrayHelper::merge([$field], $fieldLayout->getFields());
+            $fieldLayout->setFields($amendedFields);
+            $fieldLayout->getTabs()[0]->setFields($amendedFields);
+                        
+            // Change entryType fieldLayout
+            $entryType->setFieldLayout($fieldLayout);
+
+            // Save entryType configuration
+            Craft::$app->getSections()->saveEntryType($entryType);
+        }
     }
 }

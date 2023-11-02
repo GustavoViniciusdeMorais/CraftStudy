@@ -65,26 +65,8 @@ class MainController extends Controller
 
                 $sField = new SField();
                 foreach ($sectionData['attributes'] as $name) {
-                    $sField->createField($name, 'text');
+                    $sField->createField($name, 'text', $sectionData['fileName']);
                 }
-                // print_r(json_encode([$sectionData['formattedData']]));echo "\n\n";exit;
-                // foreach($sectionData['formattedData'] as $data) {
-                //     // print_r(json_encode([$data['title']]));echo "\n\n";exit;
-                //     $entry = new Entry();
-                //     $entry->sectionId = 7;
-                //     $entry->typeId = 7;
-                //     $entry->authorId = 1;
-                //     $entry->enabled = true;
-                //     $entry->title = $data['title'];
-                //     $entry->setFieldValues([
-                //         'field1' => $data['title'],
-                //         'field2' => $data['title'],
-                //     ]);
-                //     $success = Craft::$app->elements->saveElement($entry);
-                //     if (!$success) {
-                //         Craft::error('Couldn’t save the entry "'.$entry->title.'"', __METHOD__);
-                //     }
-                // }
             }
         } catch (\Exception $e) {
             $result = [
