@@ -25,8 +25,8 @@ class SField
             $field = $fields->createField([
                 'type' => 'craft\fields\PlainText',
                 'groupId' => 1,
-                'name' => 'asdfsadfadsfadsfasd',
-                'handle' => 'myrandomStringHandleGoesHere',
+                'name' => $name,
+                'handle' => $name,
                 'instructions' => '',
                 'translationMethod' => 'none',
                 'translationKeyFormat' => NULL,

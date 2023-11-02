@@ -1,0 +1,19 @@
+columnSuffix: nljefess
+contentColumnType: text
+fieldGroup: dfdfab0f-ee9e-4d2f-9e38-6400e18877e1 # test fields
+handle: siteSettingsId
+instructions: null
+name: siteSettingsId
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: 4
+  multiline: false
+  placeholder: 'Type here'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
