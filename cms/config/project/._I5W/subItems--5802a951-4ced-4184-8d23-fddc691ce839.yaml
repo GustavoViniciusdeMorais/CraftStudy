@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d85e8184-b921-4d5e-8f2f-d42cc12fc175 # Menu
+handle: subItems
+instructions: 'Menu Sub Items'
+name: 'Sub Items'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_subitems}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

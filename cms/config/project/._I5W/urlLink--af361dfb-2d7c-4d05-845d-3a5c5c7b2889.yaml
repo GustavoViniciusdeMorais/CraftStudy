@@ -1,0 +1,15 @@
+columnSuffix: egessgbn
+contentColumnType: string(255)
+fieldGroup: d85e8184-b921-4d5e-8f2f-d42cc12fc175 # Menu
+handle: urlLink
+instructions: 'Menu Item Link'
+name: urlLink
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

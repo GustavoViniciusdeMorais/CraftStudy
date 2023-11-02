@@ -1,0 +1,78 @@
+fieldLayouts:
+  f737f78c-575b-4f6a-8970-5526ce7338d3:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 05cd835b-05c1-4cf5-a8cc-3b996c30bc8c # feature image
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bc074d1d-a18c-4889-95ec-2a07e1f89fc5 # category
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: acae6709-9e07-4d61-b24e-3ae932dedd8a # post content
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8ca25f13-e246-4e08-a468-0b05de7b22c7 # summary
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: postcontent
+        sortOrder: 2
+handle: gussec
+hasTitleField: false
+name: GusSec
+section: 014176d8-962b-4073-a090-8dabe43014f0 # GusSection
+sortOrder: 1
+titleFormat: handle
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

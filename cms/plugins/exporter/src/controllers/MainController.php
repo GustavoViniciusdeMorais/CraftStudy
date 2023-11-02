@@ -8,6 +8,7 @@ use gustavomorais\craftexporter\services\SSection;
 use gustavomorais\craftexporter\assetbundles\ScriptsBundle;
 use gustavomorais\craftexporter\services\ImportData;
 use gustavomorais\craftexporter\services\SField;
+use craft\elements\Entry;
 
 class MainController extends Controller
 {
@@ -66,6 +67,24 @@ class MainController extends Controller
                 foreach ($sectionData['attributes'] as $name) {
                     $sField->createField($name, 'text');
                 }
+                // print_r(json_encode([$sectionData['formattedData']]));echo "\n\n";exit;
+                // foreach($sectionData['formattedData'] as $data) {
+                //     // print_r(json_encode([$data['title']]));echo "\n\n";exit;
+                //     $entry = new Entry();
+                //     $entry->sectionId = 7;
+                //     $entry->typeId = 7;
+                //     $entry->authorId = 1;
+                //     $entry->enabled = true;
+                //     $entry->title = $data['title'];
+                //     $entry->setFieldValues([
+                //         'field1' => $data['title'],
+                //         'field2' => $data['title'],
+                //     ]);
+                //     $success = Craft::$app->elements->saveElement($entry);
+                //     if (!$success) {
+                //         Craft::error('Couldn’t save the entry "'.$entry->title.'"', __METHOD__);
+                //     }
+                // }
             }
         } catch (\Exception $e) {
             $result = [

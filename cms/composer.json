@@ -4,6 +4,7 @@
     "require": {
         "craftcms/cms": "^4.0.0",
         "gustavomorais/craftexporter": "dev-exporter",
+        "ramsey/composer-repl": "^1.5",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
@@ -18,7 +19,8 @@
     "config": {
         "allow-plugins": {
             "craftcms/plugin-installer": true,
-            "yiisoft/yii2-composer": true
+            "yiisoft/yii2-composer": true,
+            "ramsey/composer-repl": true
         },
         "sort-packages": true,
         "optimize-autoloader": true,
