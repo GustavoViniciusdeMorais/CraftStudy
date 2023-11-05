@@ -1,0 +1,19 @@
+columnSuffix: oiuhxxmd
+contentColumnType: text
+fieldGroup: d92a2b91-9202-418e-a5d3-ab475b0e8a41 # Common
+handle: title
+instructions: null
+name: title
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: 4
+  multiline: false
+  placeholder: 'Type here'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

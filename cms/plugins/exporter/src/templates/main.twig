@@ -7,15 +7,16 @@
         {{ message }}
     {% endif %}
     
-
-    <h4>Sections</h4>
-    <select name="" id="select-session-handler">
-        {% for section in sections %}
-            <option value="{{section.handle}}">
-                {{ section.name }}
-            </option>
-        {% endfor %}
-    </select>
+    {% if sections|length %}
+        <h4>Sections</h4>
+        <select name="" id="select-session-handler">
+            {% for section in sections %}
+                <option value="{{section.handle}}">
+                    {{ section.name }}
+                </option>
+            {% endfor %}
+        </select>
+    {% endif %}
 
     <div>
         <form action="vikiport/import-entries" method="post" enctype="multipart/form-data">

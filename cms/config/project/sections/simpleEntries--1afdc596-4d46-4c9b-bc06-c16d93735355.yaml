@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+handle: simpleEntries
+name: simpleEntries
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  6185ef26-b00b-401b-85bc-2cb6404515e9: # test
+    enabledByDefault: true
+    hasUrls: true
+    template: foo/_entry
+    uriFormat: 'foo/{slug}'
+type: channel

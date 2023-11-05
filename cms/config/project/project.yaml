@@ -1,0 +1,32 @@
+dateModified: 1699194636
+email:
+  fromEmail: admin@email.com
+  fromName: test
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    1afdc596-4d46-4c9b-bc06-c16d93735355: simpleEntries # simpleEntries
+    3c34fed3-49e8-42de-a186-64483c43e846: test # test
+    7e76b49f-19ee-46c5-80aa-eaf62c472c59: Default # Default
+    6185ef26-b00b-401b-85bc-2cb6404515e9: test # test
+    560322c8-79e5-454b-9d78-f9ad0033a465: test # test
+    c1dce5af-a14a-48e0-9bb3-170af6378d47: title # title
+    c7e6038f-b704-4204-a928-cf4f748e7bfc: test # test
+    d92a2b91-9202-418e-a5d3-ab475b0e8a41: Common # Common
+plugins:
+  _exporter:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: test
+  schemaVersion: 4.5.3.0
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
