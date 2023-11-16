@@ -13,7 +13,10 @@ service php7.4-fpm start
 service --status-all
 
 ```
-
+### Disable csrf validation at controller
+```php
+public $enableCsrfValidation = false;
+```
 ### Create craft command
 ```
 composer create-project craftcms/craft=^1 cms
