@@ -17,6 +17,10 @@ service --status-all
 ```php
 public $enableCsrfValidation = false;
 ```
+### Allow anonimous calls
+```php
+public array|bool|int $allowAnonymous = true;
+```
 ### Create craft command
 ```
 composer create-project craftcms/craft=^1 cms
