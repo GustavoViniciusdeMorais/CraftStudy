@@ -76,7 +76,7 @@ mv /etc/nginx/sites-available/gus /etc/nginx/sites-available/default
 ```
 
 ### NGINX Config sites-available/defaul
-```json
+```
 server {
     listen 80;
     server_name _;
