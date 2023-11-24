@@ -2,7 +2,7 @@
 
 Created by: Gustavo Morais
 
-```
+```sh
 sudo docker commit 5906b1c1ecc1 craftstudybkp
 
 in docker file FROM craftstudybkp
@@ -22,12 +22,12 @@ public $enableCsrfValidation = false;
 public array|bool|int $allowAnonymous = true;
 ```
 ### Create craft command
-```
+```sh
 composer create-project craftcms/craft=^1 cms
 ```
 
 ### Docker NGINX Ubuntu Craft
-```
+```sh
 docker pull gustavovinicius/craft_nginx:latest
 
 # Build just the mysql container with the following credentials
@@ -35,7 +35,7 @@ docker pull gustavovinicius/craft_nginx:latest
 ```
 
 ### MySQL container
-```
+```yaml
 mysql:
     image: mysql:5.7
     restart: always
@@ -53,7 +53,7 @@ mysql:
 ```
 
 ### PHP Setup
-```
+```sh
 apt-get update
 apt -y install software-properties-common
 add-apt-repository ppa:ondrej/php
@@ -69,14 +69,14 @@ service --status-all
 ```
 
 ### NGINX Setup
-```
+```sh
 nano /etc/nginx/sites-available/gus
 rm -rf /etc/nginx/sites-available/default
 mv /etc/nginx/sites-available/gus /etc/nginx/sites-available/default
 ```
 
 ### NGINX Config sites-available/defaul
-```
+```json
 server {
     listen 80;
     server_name _;
@@ -112,7 +112,21 @@ server {
 ```
 
 ### Craft commands
-```
+```sh
 php craft setup
 https://localhost/index.php?p=admin/install # access and log as admin@email.com
+```
+### Try Catch Register Log Example
+```php
+try {
+    // code ...
+} catch (\Exception $e) {
+    Craft::error([
+    'type' => 'chamados-zendesk-senat',
+    'message' => "{$e->getMessage()}",
+    'file' => $e->getFile(),
+    'line' => $e->getLine(),
+    'details' => $e->getTrace(),
+    ]);
+}
 ```
