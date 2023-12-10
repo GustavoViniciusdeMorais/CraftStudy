@@ -1,0 +1,58 @@
+fieldLayouts:
+  26ca06f1-8336-427f-927d-4e9429ce6771:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d5c6fbc1-1608-4b75-942a-2a498885eeac
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e79b6673-e216-446f-9b81-ae6e638dc44f # body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0b9109a6-c469-40ed-8f7b-74fdd0a46350
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c636d898-d193-4cf0-9de2-06590fefb8c9
+        userCondition: null
+handle: article
+hasTitleField: true
+name: Article
+section: 60c1737d-bde2-45c0-9950-74299e0fb966 # Article
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

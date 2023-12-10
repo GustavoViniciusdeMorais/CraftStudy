@@ -1,3 +1,4 @@
 dockerDBData
 vendor
-storage/runtime/cache
+storage
+web

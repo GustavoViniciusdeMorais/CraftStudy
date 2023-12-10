@@ -5,9 +5,34 @@ Created by Gustavo Morais
 ```sh
 ```
 
+### Requirements
+- [craft make](https://github.com/craftcms/generator)
+  - [doc](https://craftcms.com/docs/4.x/extend/generator.html)
+  - composer require craftcms/generator --dev
+  - php craft make
+
+### Build plugin
+```sh
+php craft make plugin
+```
+
+### Fix the package path inside plugin composer
+```json
+{
+    "name": "gustavo-morais/crafts-citext"
+}
+```
+This is the right way
+```json
+{
+    "name": "gustavomorais/craftscitext"
+}
+```
+
+### Install plugin example
 ```sh
 cd cms
-composer require gustavomorais/craftexporter
+composer require gustavomorais/craftscitext
 php craft plugin/list
 php craft plugin/install
 handle: _exporter

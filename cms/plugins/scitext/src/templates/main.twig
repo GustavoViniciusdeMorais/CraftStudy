@@ -1,0 +1,26 @@
+{% extends "_layouts/cp.twig" %}
+{% set title = "Sci Text"|t('plugin-handle') %}
+
+{% block content %}
+
+    {% if sectionsList|length %}
+        <h4>Sections</h4>
+        <select name="" id="select-sectsion-handler">
+        {% for section in sectionsList %}
+            <option value="{{section.handle}}">
+                {{ section.name }}
+            </option>
+        {% endfor %}
+        </select>
+    {% endif %}
+
+    <br>
+    <div class="container">
+        <textarea name="" id="text-input" cols="30" rows="10" placeholder="Enter text..."></textarea>
+        <button id="process-text">
+            <span></span>Generate
+        </button>
+        <div id="output-div"></div>
+    </div>
+
+{% endblock %}

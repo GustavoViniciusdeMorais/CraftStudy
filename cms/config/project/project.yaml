@@ -1,4 +1,4 @@
-dateModified: 1699194636
+dateModified: 1702221401
 email:
   fromEmail: admin@email.com
   fromName: test
@@ -8,13 +8,16 @@ meta:
     1afdc596-4d46-4c9b-bc06-c16d93735355: simpleEntries # simpleEntries
     3c34fed3-49e8-42de-a186-64483c43e846: test # test
     7e76b49f-19ee-46c5-80aa-eaf62c472c59: Default # Default
+    27a0cbfd-9f57-4104-a212-aca2b8954d98: Article # Article
+    60c1737d-bde2-45c0-9950-74299e0fb966: Article # Article
     6185ef26-b00b-401b-85bc-2cb6404515e9: test # test
     560322c8-79e5-454b-9d78-f9ad0033a465: test # test
     c1dce5af-a14a-48e0-9bb3-170af6378d47: title # title
     c7e6038f-b704-4204-a928-cf4f748e7bfc: test # test
     d92a2b91-9202-418e-a5d3-ab475b0e8a41: Common # Common
+    e79b6673-e216-446f-9b81-ae6e638dc44f: body # body
 plugins:
-  _exporter:
+  _scitext:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

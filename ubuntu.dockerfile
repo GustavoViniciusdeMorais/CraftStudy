@@ -1,17 +1,17 @@
 # FROM ubuntu:jammy
 FROM gustavovinicius/craft_nginx:php81
 
-RUN apt update
+# RUN apt update
 
-RUN apt install nginx -y
+# RUN apt install nginx -y
 
-RUN apt install nano -y
+# RUN apt install nano -y
 
-RUN apt install curl -y
+# RUN apt install curl -y
 
-RUN apt update
+# RUN apt update
 
-RUN apt install systemctl -y
+# RUN apt install systemctl -y
 
 ADD ./nginx/default.conf /etc/nginx/sites-available/default
 

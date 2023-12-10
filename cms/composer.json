@@ -3,7 +3,8 @@
     "prefer-stable": true,
     "require": {
         "craftcms/cms": "^4.0.0",
-        "gustavomorais/craftexporter": "dev-exporter",
+        "gustavomorais/craftexporter": "dev-main",
+        "gustavomorais/craftscitext": "dev-main",
         "ramsey/composer-repl": "^1.5",
         "vlucas/phpdotenv": "^5.4.0"
     },
@@ -33,8 +34,14 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
-    "repositories": [{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "plugins/scitext"
+        },
+        {
             "type": "path",
             "url": "plugins/exporter"
-        }]
+        }
+    ]
 }
