@@ -1,0 +1,27 @@
+{% extends "_layouts/cp.twig" %}
+{% set title = "Vikiport"|t('plugin-handle') %}
+
+{% block content %}
+
+    {% if message is defined and message|length %}
+        {{ message }}
+    {% endif %}
+    
+    {% if sections|length %}
+        <h4>Sections</h4>
+        <select name="" id="select-session-handler">
+            {% for section in sections %}
+                <option value="{{section.handle}}">
+                    {{ section.name }}
+                </option>
+            {% endfor %}
+        </select>
+    {% endif %}
+
+    <div>
+        <form action="vikiport/import-entries" method="post" enctype="multipart/form-data">
+            <input type="file" name="entriesData">
+            <button class="btn" >Import data</button>
+        </form>
+    </div>
+{% endblock %}
