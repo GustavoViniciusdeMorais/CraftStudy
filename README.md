@@ -22,6 +22,7 @@ public $enableCsrfValidation = false;
 public array|bool|int $allowAnonymous = true;
 ```
 ### Create craft command
+It uses number 1 but builds craft number 3
 ```sh
 composer create-project craftcms/craft=^1 cms
 ```
