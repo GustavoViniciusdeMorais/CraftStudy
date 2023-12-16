@@ -123,7 +123,7 @@ try {
     // code ...
 } catch (\Exception $e) {
     Craft::error([
-    'type' => 'chamados-zendesk-senat',
+    'type' => 'name-of-error',
     'message' => "{$e->getMessage()}",
     'file' => $e->getFile(),
     'line' => $e->getLine(),
