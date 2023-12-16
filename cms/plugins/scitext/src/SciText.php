@@ -66,6 +66,8 @@ class SciText extends Plugin
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['scitext'] = $this->id . '/main/main-screen';
                 $event->rules['scitext/get-entries'] = $this->id . '/main/get-entries';
+                $event->rules['scitext/get-entry-fields'] = $this->id . '/main/get-entry-fields';
+                $event->rules['scitext/get-entry-field-text'] = $this->id . '/main/get-entry-field-text';
             }
         );
 

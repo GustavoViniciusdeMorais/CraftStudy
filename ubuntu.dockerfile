@@ -15,7 +15,7 @@ FROM gustavovinicius/craft_nginx:php81
 
 ADD ./nginx/default.conf /etc/nginx/sites-available/default
 
-RUN apt install -y php8.1-fpm
+# RUN apt install -y php8.1-fpm
 
 # # RUN mkdir /var/www/mysite
 
