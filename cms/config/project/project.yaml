@@ -1,4 +1,4 @@
-dateModified: 1702221401
+dateModified: 1702826026
 email:
   fromEmail: admin@email.com
   fromName: test
@@ -12,6 +12,7 @@ meta:
     60c1737d-bde2-45c0-9950-74299e0fb966: Article # Article
     6185ef26-b00b-401b-85bc-2cb6404515e9: test # test
     560322c8-79e5-454b-9d78-f9ad0033a465: test # test
+    a5d6b07d-18d9-4a11-b6fa-87be9e783490: Summary # Summary
     c1dce5af-a14a-48e0-9bb3-170af6378d47: title # title
     c7e6038f-b704-4204-a928-cf4f748e7bfc: test # test
     d92a2b91-9202-418e-a5d3-ab475b0e8a41: Common # Common
