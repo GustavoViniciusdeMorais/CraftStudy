@@ -78,7 +78,7 @@ class SciText extends Plugin
             function(RegisterCpNavItemsEvent $event) {
                 $event->navItems[] = [
                     'url' => 'scitext',
-                    'label' => 'Gus Sci Text',
+                    'label' => 'Morais SciText',
                     'icon' => '@mynamespace/path/to/icon.svg',
                 ];
             }
