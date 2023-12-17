@@ -4,31 +4,53 @@
 {% block content %}
 
     {% if sectionsList|length %}
-        <h4>Sections</h4>
-        <select name="" id="select-sectsion-handler">
+        <h4>Choose text from an entry of a section</h4>
+        <select name="" id="select-sectsion-handler" class="">
         {% for section in sectionsList %}
             <option value="{{section.handle}}">
                 {{ section.name }}
             </option>
         {% endfor %}
         </select>
+
+        <select id="section-entries" hidden>
+            <option value=''>Choose entry</option>
+        </select>
+
+        <select id="entry-fields" hidden>
+            <option value=''>Choose text field</option>
+        </select>
+
+        <br>
+    {% else %}
+        No sections found.
+        <br>
     {% endif %}
-
-    <select id="section-entries" hidden>
-        <option value=''>Choose entry</option>
-    </select>
-
-    <select id="entry-fields" hidden>
-        <option value=''>Choose text field</option>
-    </select>
 
     <br>
     <div class="container">
-        <textarea name="" id="text-input" cols="30" rows="10" placeholder="Enter text..."></textarea>
-        <button id="process-text">
+        <textarea name="" id="text-input" cols="50" rows="5" placeholder="Enter text..." class="text"></textarea>
+        <br><br>
+        <button id="process-text" class="btn">
             <span></span>Generate
         </button>
-        <div id="output-div"></div>
+        <br><br>
+        <div id="output-div" class="text" hidden></div>
+        <br>
+        <div id="choose-field-save-summary" hidden>
+            <p>Choose a field to save the generated summary</p>
+            <select id="entry-fields-overwrite">
+                <option value=''>Choose text field</option>
+            </select>
+            <br><br>
+            <button id="save-sammary" class="btn">
+                Save summary
+            </button>
+            <br><br>
+            <div id="result-message"></div>
+        </div>
     </div>
+
+
 
 {% endblock %}

@@ -68,6 +68,7 @@ class SciText extends Plugin
                 $event->rules['scitext/get-entries'] = $this->id . '/main/get-entries';
                 $event->rules['scitext/get-entry-fields'] = $this->id . '/main/get-entry-fields';
                 $event->rules['scitext/get-entry-field-text'] = $this->id . '/main/get-entry-field-text';
+                $event->rules['scitext/overwrite-entry-field'] = $this->id . '/main/overwrite-entry-field';
             }
         );
 

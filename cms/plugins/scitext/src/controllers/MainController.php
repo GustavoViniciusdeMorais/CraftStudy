@@ -6,7 +6,6 @@ use Craft;
 use craft\web\Controller;
 use gustavomorais\craftscitext\assetbundles\ScriptsBundle;
 use gustavomorais\craftscitext\services\SectionService;
-use craft\elements\Entry;
 
 class MainController extends Controller
 {
@@ -108,6 +107,37 @@ class MainController extends Controller
 
             }
             $result['data'] = $content;
+        } catch (\Exception $e) {
+            Craft::error([
+                'type' => 'chamados-zendesk-senat',
+                'message' => "{$e->getMessage()}",
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'details' => $e->getTrace(),
+            ]);
+        }
+        return $this->asJson($result);
+    }
+
+    public function actionOverwriteEntryField()
+    {
+        $result = [];
+        try {
+            $post = Craft::$app->getRequest()->post();
+            if (
+                !empty($post)
+                && isset($post['entryId'])
+                && isset($post['fieldHandle'])
+                && isset($post['newValue'])
+            ) {
+                $section = new SectionService();
+                $response = $section->overwriteEntryField(
+                    $post['entryId'],
+                    $post['fieldHandle'],
+                    $post['newValue']
+                );
+            }
+            $result['data'] = $response;
         } catch (\Exception $e) {
             Craft::error([
                 'type' => 'chamados-zendesk-senat',

@@ -2,6 +2,7 @@
 
 namespace gustavomorais\craftscitext\services;
 
+use Craft;
 use craft\elements\Entry;
 use craft\records\Field;
 use craft\services\Sections;
@@ -76,5 +77,28 @@ class SectionService
             $result = $entry->$fieldHandle;
         }
         return $result;
+    }
+
+    public function overwriteEntryField
+    (
+        $entryId = false,
+        $fieldHandle = false,
+        $newValue = false
+    ) {
+        $result = 'Error: Some error occurred. No changes applied.';
+        if (
+            $entryId
+            && $fieldHandle
+            && $newValue
+        ) {
+            $entry = Entry::findOne($entryId);
+            $entry->setFieldValues([
+                $fieldHandle => $newValue
+            ]);
+            if (Craft::$app->elements->saveElement($entry)) {
+                $result = 'Success: Summary saved with success!';
+            }
+        }
+        return "<strong>{$result}</strong>";
     }
 }
