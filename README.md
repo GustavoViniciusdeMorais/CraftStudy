@@ -131,3 +131,12 @@ try {
     ]);
 }
 ```
+### Cache example
+```php
+if (Craft::$app->cache->exists("test-dev")) {
+    $data = Craft::$app->cache->get("test-dev");
+} else {
+    $data = [];
+    Craft::$app->cache->set("test-dev", $data, 60 * 5);
+}
+```
